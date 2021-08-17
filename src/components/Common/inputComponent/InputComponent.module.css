@@ -1,0 +1,22 @@
+.superInput {
+    width:40%;
+    border:2px solid #aaa;
+    background-color: rgb(221, 221, 221);
+    border-radius:5px;
+    font-size: 20px;
+    margin:3px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.5s;
+}
+
+
+.errorInput {
+    border: 3px solid lime;
+    background: red;
+}
+
+.error {
+    color: red;
+}

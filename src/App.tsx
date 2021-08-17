@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {HashRouter, Route} from "react-router-dom";
+import {Provider} from "react-redux";
+import {store} from "./store/store";
+import {Login} from "./components/Login";
+import {Register} from "./components/Register";
+import {Profile} from "./components/Profile";
+import {Page404} from "./components/Page404";
+import {Recovery} from "./components/Recovery";
+import {NewPassword} from "./components/NewPassword";
+import {Test} from "./components/Test";
+import {InputComponent} from "./components/Common/inputComponent/InputComponent";
+import {CheckboxComponent} from "./components/Common/checkboxComponent/CheckboxComponent";
+import {ButtonComponent} from "./components/Common/buttonComponent/ButtonComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+    return (
+        <Provider store={store}>
+            <HashRouter>
+                <div className="App">
+                    <InputComponent/>
+                    <CheckboxComponent/>
+                    <ButtonComponent title={"Submit"}/>
+                    <Route path='/login' component={ Login } />
+                    <Route path='/register' component={ Register } />
+                    <Route path='/profile' component={ Profile } />
+                    <Route path='/404' component={ Page404 } />
+                    <Route path='/recovery' component={ Recovery } />
+                    <Route path='/newPassword' component={ NewPassword } />
+                    <Route path='/test' component={ Test } />
+                </div>
+            </HashRouter>
+        </Provider>
+    )
 }
-
-export default App;
